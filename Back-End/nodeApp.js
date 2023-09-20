@@ -53,10 +53,10 @@ app.get("/products", async function (req, res) {
   }
 });
 //...........................get product by ID.................................
-app.get("/products2/:productId", async function (req, res) {
+app.get("/products/:productId", async function (req, res) {
   const productId = +req.params.productId;
   let getSingleProduct2 = await productModel.findOne({
-    productId:productId,
+    id:productId,
   });
   if (getSingleProduct2) {
     res.send(getSingleProduct2 );
