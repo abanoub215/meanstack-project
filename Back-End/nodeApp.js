@@ -17,6 +17,7 @@ app.post("/productsAdd", async function (req, res) {
     productImage,
     productStatus,
     productType,
+    pageNumber
   } = req.body;
   let productAdded = await productModel.insertMany({
     productName,
@@ -25,6 +26,7 @@ app.post("/productsAdd", async function (req, res) {
     productImage,
     productStatus,
     productType,
+    pageNumber
   });
   if (productAdded) {
     res.json({ message: "success", productAdded });
@@ -36,21 +38,33 @@ app.post("/productsAdd", async function (req, res) {
 app.get("/products", async function (req, res) {
     let getAllProducts = await productModel.find();
     if (getAllProducts) {
-      res.json({ message: "success", getAllProducts });
+      res.send(getAllProducts);
     } else {
       res.json({ message: "failed" });
     }
   });
+  //...........................get ## .................................
+app.get("/products", async function (req, res) {
+  let getAllProducts = await productModel.find();
+  if (getAllProducts&&getAllProducts.productType=="") {
+    res.send(getAllProducts);
+  } else {
+    res.json({ message: "failed" });
+  }
+});
 //...........................get product by ID.................................
-app.get("/products/:id", async function (req, res) {
-    const id = req.params.id;
-    let getSingleProduct = await productModel.findById(id);
-    if (getSingleProduct) {
-      res.json({ message: "success", getSingleProduct });
-    } else {
-      res.json({ message: "failed" });
-    }
+app.get("/products2/:productId", async function (req, res) {
+  const productId = +req.params.productId;
+  let getSingleProduct2 = await productModel.findOne({
+    productId:productId,
   });
+  if (getSingleProduct2) {
+    res.send(getSingleProduct2 );
+  } else {
+    res.json({ message: "failed" });
+  }
+});
+//pagination search
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  // allProducts: any[] = [];
-  // allData: any=this.allProducts
-  // totalProductsNum!: number;
-  // constructor(private homeServ: HomeService) {}
+  allProducts: any[]=[]
+  constructor(private homeProductServ: HomeService) {}
 
   ngOnInit(): void {
-    // this.homeServ.getAllProducts().subscribe({
-    //   next: (response) => {
-    //     this.allProducts = response.results;
-    //     this.allData = this.allProducts;
-    //   },
-    // });
+    this.homeProductServ.getAllProducts().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.allProducts=data
+      },
+    });
   }
 
+  toggleDetails(productId: number) {
+    console.log(productId);
+    for (const item of this.allProducts) {
+      if (item.id == productId) {
+        item.toggleDiscription = !item.toggleDiscription;
+      }
+    }
+  }
 }

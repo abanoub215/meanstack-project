@@ -17,33 +17,34 @@
   </div>
 </div>
 <div class="afterImg">
-  <p>RPTS</p>
-  <p>Right Place To Shop</p>
+  <p >RPTS</p>
+  <p >Right Place To Shop</p>
 </div>
 
 
 
+<!-- [routerLink]="['/tvDetails', tv.id]" -->
 
-
-<!-- <div class="container mt-5">
+<div class="container mt-5">
   <div class="row justify-content-center">
-    <div id="div1" class="card movie_card" *ngFor="let tv of allTvs">
-      <a [routerLink]="['/tvDetails', tv.id]"
-        ><img [src]="{allProducts.productImage}"
+    <div id="div1" class="card movie_card" *ngFor="let homeProduct of allProducts">
+      <a [routerLink]="['/homeProductsDetails', homeProduct.id]"
+        ><img class="card-img-top" alt="..." [src]="homeProduct.productImage"
       /></a>
 
       <div class="card-body">
-        <h5 class="card-title">{{ tv.name }}</h5>
-        <p class="description" *ngIf="tv.toggleDiscription">
-          {{ tv.overview }}
+        <h5 class="card-title">{{ homeProduct.productName }}</h5>
+        <h5 class="card-title">{{ homeProduct.productPrice }} EG</h5>
+        <p class="description" *ngIf="homeProduct.toggleDiscription">
+          {{ homeProduct.productDescription }}
         </p>
         <button
           class="btn btn-warning d-block m-1"
-          (click)="toggleDetails(tv.id)"
+          (click)="toggleDetails(homeProduct.id)"
         >
-          {{ tv.toggleDiscription ? "Hide" : "See" }} Details
+          {{ homeProduct.toggleDiscription ? "Hide" : "See" }} Details
         </button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
