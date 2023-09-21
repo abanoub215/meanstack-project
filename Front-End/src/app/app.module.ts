@@ -7,14 +7,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
-import { HomeProductsDetailsComponent } from './home-products-details/home-products-details.component'
+import { HomeProductsDetailsComponent } from './home-products-details/home-products-details.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    HomeProductsDetailsComponent
+    HomeProductsDetailsComponent,
+    AboutUsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

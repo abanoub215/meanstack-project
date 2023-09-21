@@ -68,3 +68,16 @@ app.get("/products/:productId", async function (req, res) {
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+
+// const searchUsers = catchAsyncErr(async (req, res) => {
+//   const { userName } = req.body;
+//   var pattern = "^" + userName.replace("'", '"');
+//   let user = await userModel.find({ userName: { $regex: pattern } });
+//   if (user) {
+//     res.json({ message: " successfully", user });
+//   } else {
+//     res.json({ message: " not exist" });
+//   }
+// });

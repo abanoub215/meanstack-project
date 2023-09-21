@@ -39,7 +39,9 @@ margin-top: 10px;}
     color:black;
 
 }
-
+/* .title1 ,.titl2{
+	font-size: 100px;
+} */
 
 
 
@@ -60,7 +62,7 @@ img {
 }
 .movie_card{
     padding: 0 !important;
-    width: 22rem;
+    width: 20rem;
     margin:14px; 
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
@@ -68,7 +70,7 @@ img {
 .movie_card img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: 33rem;
+    height: 26rem;
 }
 .movie_info{
     color: #5e5c5c;
@@ -78,9 +80,9 @@ img {
     font-size: 20px;
 }
 .card-title{
-    width: 80%;
-    height: 4rem;
-    color: white;
+    width: 84%;
+    height: 3rem;
+    color: rgb(0, 0, 0);
 }
 .play_button{
     background-color: #ff3d49;
@@ -115,11 +117,107 @@ img {
     color: #8e24aa;
 }
 /* .container{
-    background-image: url('https://media.istockphoto.com/id/1409147791/photo/luxury-leather-texture-with-genuine-pattern-brown-skin-background.webp?b=1&s=170667a&w=0&k=20&c=BW8lKzzQMlyym_iMWtJ_xbS6km59z8DWo-FhUMb7d1Q=');
+    background-image: url(https://img.freepik.com/premium-vector/shopping-pattern-background-design_260839-17.jpg);
 } */
 #div1{
-    background-color: rgba(80, 72, 39, 0.849);
+    background-color: rgba(255, 255, 255, 0.849);
 }
 .description{
-    color: white;
+    color: rgb(0, 0, 0);
 } 
+.tag{
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 0 0.4rem;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+img {
+    max-width: 100%;
+    height: 100%;
+}
+
+
+
+h2{
+/*     font-family: "Vidaloka", serif; */
+    font-weight: 600 !important;
+    line-height: 1.2;
+    color: #232324;
+      font-size: 36px;
+
+}
+.about-content span {
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    display: block;
+}
+p1 {
+  font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #8a8a8a;
+    line-height: 2;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+
+.section-heading {
+    margin-bottom: 50px;
+}
+.section-heading h5 {
+    color: #F56960;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.section-heading h2 {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.title-icon-divider {
+    color: #0791BE;
+    line-height: 1;
+    position: relative;
+    margin-top: 25px;
+      display: flex;
+
+}
+.title-icon-divider:before, .title-icon-divider:after {
+    content: "....";
+    display: inline-block;
+    font-size: 37px;
+    line-height: 0;
+    letter-spacing: 3px;
+}
+.title-icon-divider [class*=fa-] {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.title-icon-divider ~ p {
+    margin-top: 30px;
+}
