@@ -1,45 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../navbar.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-allTitles:any[]=[];
-allData: any[] = this.allTitles;
-
-constructor(){
-
-}
-ngOnInit(): void{
-
-}
-
-private searchval: string = '';
-
-set searchValue(value: string) {
-  this.searchval = value;
-  this.searchall(value);
-}
+  allProducts: any[] = [];
+  private searchval: string = '';
 
 
+  constructor(private navServ: NavbarService) {}
 
+  ngOnInit(): void {
+  }
 
-
-  searchall(title: string) {
-    if (title == '') {
-      this.allTitles = this.allData;
-    } else {
-      this.allTitles = this.allTitles.filter((title) => {
-        if (
-          title.title
-            .toLocaleLowerCase()
-            .includes(title.toLocaleLowerCase())
-        ) {
-          return title;
-        }
-      });
-    }
+  search(productName: string) {
+    this.navServ.searchAllProducts(productName).subscribe({
+      next: (data) => {
+        
+        this.allProducts = data.product;        
+        console.log(data.product);
+      },
+    });
+  }
+  set searchValue(value: string) {
+    this.searchval = value;
+    this.search(value);
   }
 }

@@ -17,7 +17,7 @@ app.post("/productsAdd", async function (req, res) {
     productImage,
     productStatus,
     productType,
-    pageNumber
+    pageNumber,
   } = req.body;
   let productAdded = await productModel.insertMany({
     productName,
@@ -26,7 +26,7 @@ app.post("/productsAdd", async function (req, res) {
     productImage,
     productStatus,
     productType,
-    pageNumber
+    pageNumber,
   });
   if (productAdded) {
     res.json({ message: "success", productAdded });
@@ -36,17 +36,17 @@ app.post("/productsAdd", async function (req, res) {
 });
 //...........................get all products.................................
 app.get("/products", async function (req, res) {
-    let getAllProducts = await productModel.find();
-    if (getAllProducts) {
-      res.send(getAllProducts);
-    } else {
-      res.json({ message: "failed" });
-    }
-  });
-  //...........................get ## .................................
+  let getAllProducts = await productModel.find();
+  if (getAllProducts) {
+    res.send(getAllProducts);
+  } else {
+    res.json({ message: "failed" });
+  }
+});
+//...........................get ## .................................
 app.get("/products", async function (req, res) {
   let getAllProducts = await productModel.find();
-  if (getAllProducts&&getAllProducts.productType=="") {
+  if (getAllProducts && getAllProducts.productType == "") {
     res.send(getAllProducts);
   } else {
     res.json({ message: "failed" });
@@ -56,10 +56,10 @@ app.get("/products", async function (req, res) {
 app.get("/products/:productId", async function (req, res) {
   const productId = +req.params.productId;
   let getSingleProduct2 = await productModel.findOne({
-    id:productId,
+    id: productId,
   });
   if (getSingleProduct2) {
-    res.send(getSingleProduct2 );
+    res.send(getSingleProduct2);
   } else {
     res.json({ message: "failed" });
   }
@@ -69,15 +69,16 @@ app.get("/products/:productId", async function (req, res) {
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
+//...........................home search for product //nooran.................................
+app.post("/products/search", async function (req, res) {
+  const { productName } = req.body;
+  let product = await productModel.find({
+    productName: { $regex: `${productName}` },
+  });
 
-
-// const searchUsers = catchAsyncErr(async (req, res) => {
-//   const { userName } = req.body;
-//   var pattern = "^" + userName.replace("'", '"');
-//   let user = await userModel.find({ userName: { $regex: pattern } });
-//   if (user) {
-//     res.json({ message: " successfully", user });
-//   } else {
-//     res.json({ message: " not exist" });
-//   }
-// });
+  if (product.length) {
+    res.send({ product });
+  } else {
+    res.json({ message: "NO product MATCHED" });
+  }
+});

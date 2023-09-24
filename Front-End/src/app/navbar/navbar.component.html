@@ -1,3 +1,4 @@
+
 <link
   href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
   rel="stylesheet"
@@ -8,10 +9,14 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div  style="width: 100%;">
+  
+
+
   <nav class="navbar navbar-expand-lg navbar-light">
     <a id="title" class="navbar-brand text-white font-weight-bold" style="margin-left: 10px;" href="#"
       >RPTS</a
     >
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -23,10 +28,11 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto topnav">
-        <div>
+        <!-- <div>
           <input
             style="
               margin-left: 0px;
@@ -37,9 +43,29 @@
             type="text"
             class="form-control"
             [(ngModel)]="searchValue"
-          />
-          <!-- <h2>{{searchval}}</h2> -->
-        </div>
+            />
+            <div *ngFor="let item of allProducts">{{ item }}>
+                <div class="card-body">
+                  <div class="tag bg-success">{{ item.productStatus }}</div>
+                  <h5 class="card-title">{{ item.productName }}</h5>
+                  <h5 class="card-title">{{ item.productPrice }} EG</h5>
+                  <p class="description" *ngIf="item.toggleDiscription">
+                    {{ item.productDescription }}
+                  </p>
+                <button [routerLink]="['/homeProductsDetails', item.id]" class="btn btn-warning d-block " style="margin-left: 110px; margin-bottom: 3px;">
+                  Order
+                </button>
+                  <button
+                    class="btn btn-success " style="margin-left: 90px;"
+                    (click)="toggleDetails(item.id)"
+                  >
+                    {{ item.toggleDiscription ? "Hide" : "See" }} Details
+                  </button>
+          
+                </div>
+            </div>
+        </div> -->
+
         <li class="nav-item">
           <b> <a class="nav-link text-white" style="margin-right: 10px;" href="#" routerLink="/aboutUs">About Us</a></b>
         </li>

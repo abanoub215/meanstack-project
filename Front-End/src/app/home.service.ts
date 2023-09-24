@@ -20,4 +20,13 @@ export class HomeService {
       `http://localhost:3000/products/${Id}`
     );
   }
+  searchAllProducts(productName: string): Observable<any> {
+    if (productName == '') {
+      return this.getAllProducts();
+    } else {
+      return this.http.post(
+        `http://localhost:3000/products/search`,  { productName: productName }
+      );
+    }
+  }
 }

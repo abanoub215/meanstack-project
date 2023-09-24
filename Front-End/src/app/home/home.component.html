@@ -1,13 +1,32 @@
+
+
 <div
   style="
     background-size: 1400px 700px;
     background-image: url(https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fb3118e3e-38c1-11eb-a4fe-454ae9b80c8b.jpg?crop=6400%2C3600%2C160%2C846);
   "
 >
+
   <div class="banner-section">
     <div class="row">
-      <div></div>
       <div>
+        <input
+      style="
+      z-index: 0;
+      position: relative;
+        margin-left: 250px;
+        margin-top: -110px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        width: 700px;
+      "
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchValue"
+      />
+      </div>
+      <div>
+        
         <div class="banner-detail" style="visibility: hidden">
             <h1 class="title1">RPTS</h1>
           <h5 class="title2">Right Place To Shop</h5>
@@ -19,6 +38,7 @@
 <div class="afterImg">
   <p >RPTS</p>
   <p >Right Place To Shop</p>
+  
 </div>
 
 
@@ -26,6 +46,7 @@
 <!-- [routerLink]="['/tvDetails', tv.id]" -->
 
 <div class="container mt-5">
+
   <div class="row justify-content-center">
     <div id="div1" class="card movie_card" *ngFor="let homeProduct of allProducts">
       <a [routerLink]="['/homeProductsDetails', homeProduct.id]"
