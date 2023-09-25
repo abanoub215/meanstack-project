@@ -10,7 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeProductsDetailsComponent } from './home-products-details/home-products-details.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
-import { BeautyPageComponent } from './beauty-page/beauty-page.component'
+import { BeautyPageComponent } from './beauty-page/beauty-page.component';
+import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-product-details.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BeautyPageComponent } from './beauty-page/beauty-page.component'
     HomeProductsDetailsComponent,
     AboutUsComponent,
     FooterComponent,
-    BeautyPageComponent
+    BeautyPageComponent,
+    BeautyProductDetailsComponent
   ],
   imports: [
     BrowserModule,
