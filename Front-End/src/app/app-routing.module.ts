@@ -6,6 +6,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { BeautyPageComponent } from './beauty-page/beauty-page.component';
 import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-product-details.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'homeProductsDetails/:id', component: HomeProductsDetailsComponent },
   { path: 'beautyProducts', component: BeautyPageComponent },
   { path: 'beautyProductsDetails/:id', component: BeautyProductDetailsComponent },
+  { path: 'shoppingCart', component: ShoppingCartComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'footer', component: FooterComponent },
 

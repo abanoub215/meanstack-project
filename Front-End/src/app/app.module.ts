@@ -11,7 +11,8 @@ import { HomeProductsDetailsComponent } from './home-products-details/home-produ
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { BeautyPageComponent } from './beauty-page/beauty-page.component';
-import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-product-details.component'
+import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-product-details.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-p
     AboutUsComponent,
     FooterComponent,
     BeautyPageComponent,
-    BeautyProductDetailsComponent
+    BeautyProductDetailsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
