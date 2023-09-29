@@ -3,6 +3,8 @@ import cors from "cors";
 import { dbConnection } from "./database/dbConnection.js";
 import { productModel } from "./database/models/product.model.js";
 import { cartModel } from "./database/models/cart.model.js";
+import { gameModel } from "./database/models/games.js";
+import { gameModel } from "./database/models/games.js";
 const app = express();
 const port = 3000;
 app.use(cors());
@@ -69,8 +71,10 @@ app.get("/products/:productId", async function (req, res) {
   const productId = +req.params.productId;
   let getSingleProduct2 = await productModel.findOne({
     id: productId,
+    id: productId,
   });
   if (getSingleProduct2) {
+    res.send(getSingleProduct2);
     res.send(getSingleProduct2);
   } else {
     res.json({ message: "failed" });
@@ -89,23 +93,59 @@ app.post("/products/search", async function (req, res) {
     res.json({ message: "NO product MATCHED" });
   }
 });
-//...........................add to cart //nooran.................................
-app.post("/cart", async function (req, res) {
-  let cart =  new cartModel({
-cartItems:[req.body]  });
-if(cart){
-  await cart.save()
-  return res.send({message:"success",cart})
 
-}
-let item=cart.find((elm)=>elm.product==req.body.product)
-if(item){
-item.quantity+=1
-}
-await cart.save()
-res.send({message:"success",cart})
+//...........................get games .................................
+app.get("/games", async function (req, res) {
+  var pageNumber = +req.query.pageNumber || 1;
+  var pageSize = +req.query.pageSize || 10;
+
+  try {
+    const totalGames = await gameModel.countDocuments();
+    const fetchedGames = await gameModel
+      .find()
+      .skip(pageSize * (pageNumber - 1))
+      .limit(pageSize);
+
+    res.send({
+      totalGames: totalGames,
+      games: fetchedGames,
+    });
+  } catch (err) {
+    res.send({
+      error: "Error getting games",
+    });
+  }
 });
-//................................................................................
+
+//...........................get games by ID.................................
+app.get("/games/:gameId", async function (req, res) {
+  if (isFinite(+req.params.gameId)) {
+    const gameId = +req.params.gameId;
+    let getSinglegame = await gameModel.findOne({
+      id: gameId,
+    });
+    if (getSinglegame) {
+      res.send(getSinglegame);
+    }else{
+      res.json({ message: "Not Found" });
+    }
+  } else {
+    res.json({ message: "Enter ID" });
+  }
+});
+//pagination search
+//...........................search by name.................................
+app.get("/search/:proName", async function (req, res) {
+  let listOfGames = await gameModel.find({
+    title: { $regex: req.params.proName, $options: "i" },
+    // title: { $regex: req.query.proName, $options: "i" },
+  });
+  if (listOfGames.length > 0) {
+    res.send(listOfGames);
+  } else {
+    res.json({ message: "failed" });
+  }
+});
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
