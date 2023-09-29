@@ -2,13 +2,14 @@ import express from "express";
 import cors from "cors";
 import { dbConnection } from "./database/dbConnection.js";
 import { productModel } from "./database/models/product.model.js";
+import { cartModel } from "./database/models/cart.model.js";
 const app = express();
 const port = 3000;
 app.use(cors());
 app.use(express.json());
 dbConnection();
 
-//...........................add product.................................
+//...........................add product //nooran.................................
 app.post("/productsAdd", async function (req, res) {
   const {
     productName,
@@ -88,8 +89,23 @@ app.post("/products/search", async function (req, res) {
     res.json({ message: "NO product MATCHED" });
   }
 });
+//...........................add to cart //nooran.................................
+app.post("/cart", async function (req, res) {
+  let cart =  new cartModel({
+cartItems:[req.body]  });
+if(cart){
+  await cart.save()
+  return res.send({message:"success",cart})
 
-//pagination search
+}
+let item=cart.find((elm)=>elm.product==req.body.product)
+if(item){
+item.quantity+=1
+}
+await cart.save()
+res.send({message:"success",cart})
+});
+//................................................................................
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
