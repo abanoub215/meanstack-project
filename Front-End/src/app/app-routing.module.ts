@@ -9,6 +9,9 @@ import { BeautyProductDetailsComponent } from './beauty-product-details/beauty-p
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { GamesComponent } from './games/games.component';
 import { GamesDetailsComponent } from './games-details/games-details.component';
+import { SignupComponent } from './signup/signup.component';
+import { MobilesComponent } from './mobiles/mobiles.component';
+import { MobilesDetailsComponent } from './mobiles-details/mobiles-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path: 'shoppingCart', component: ShoppingCartComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'footer', component: FooterComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'mobiles', component: MobilesComponent },
+  { path: 'mobilesDetails/:id', component: MobilesDetailsComponent },
 
 
 

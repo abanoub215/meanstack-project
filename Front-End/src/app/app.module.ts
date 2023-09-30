@@ -19,6 +19,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { GamesDetailsComponent } from './games-details/games-details.component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
+import { MobilesDetailsComponent } from './mobiles-details/mobiles-details.component';
+import { MobilesComponent } from './mobiles/mobiles.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { SupermarketPageComponent } from './supermarket-page/supermarket-page.co
     GamesComponent,
     GamesDetailsComponent,
     SupermarketPageComponent,
+    SignupComponent,
+    MobilesComponent,
+    MobilesDetailsComponent
   ],
   imports: [
     BrowserModule,
