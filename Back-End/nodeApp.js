@@ -4,6 +4,7 @@ import { dbConnection } from "./database/dbConnection.js";
 import { productModel } from "./database/models/product.model.js";
 import { cartModel } from "./database/models/cart.model.js";
 import { gameModel } from "./database/models/games.js";
+import { mobilesModel } from "./database/models/mobiles.model.js";
 const app = express();
 const port = 3000;
 app.use(cors());
@@ -70,10 +71,8 @@ app.get("/products/:productId", async function (req, res) {
   const productId = +req.params.productId;
   let getSingleProduct2 = await productModel.findOne({
     id: productId,
-    id: productId,
   });
   if (getSingleProduct2) {
-    res.send(getSingleProduct2);
     res.send(getSingleProduct2);
   } else {
     res.json({ message: "failed" });
@@ -145,6 +144,40 @@ app.get("/search/:proName", async function (req, res) {
     res.json({ message: "failed" });
   }
 });
+
+// Get all mobiles by //ABANOUB ABOELSAAD
+app.get("/mobiles", async function (req, res) {
+  try {
+    const getAllMobiles = await mobilesModel.find({ id: { $gte: 1, $lte: 9} });
+    if (getAllMobiles && getAllMobiles.length > 0) {
+      res.send(getAllMobiles);
+    } else {
+      res.json({ message: "No mobiles found" });
+    }
+  } catch (error) {
+    console.error("Error fetching mobiles:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Get mobile by ID BY// ABANOUB ABOELSAAD
+app.get("/mobiles/:mobilesId", async function (req, res) {
+  const mobileId = parseInt(req.params.mobilesId, 10);
+
+  try {
+    const getSingleMobile = await mobilesModel.findOne({ id: mobileId });
+
+    if (getSingleMobile) {
+      res.send(getSingleMobile);
+    } else {
+      res.status(404).json({ message: "Mobile not found" });
+    }
+  } catch (error) {
+    console.error("Error fetching mobile by ID:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
