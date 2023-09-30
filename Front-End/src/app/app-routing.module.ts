@@ -12,6 +12,9 @@ import { GamesDetailsComponent } from './games-details/games-details.component';
 import { SignupComponent } from './signup/signup.component';
 import { MobilesComponent } from './mobiles/mobiles.component';
 import { MobilesDetailsComponent } from './mobiles-details/mobiles-details.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductsDetailsComponent } from './products-details/products-details.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,7 +31,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'mobiles', component: MobilesComponent },
   { path: 'mobilesDetails/:id', component: MobilesDetailsComponent },
-
+  { path: 'electronicsProducts', component: ProductsComponent },
+  { path: 'electronicsProductsDetails/:id', component:ProductsDetailsComponent },
+  { path: 'login', component:LoginComponent }
 
 
 ];

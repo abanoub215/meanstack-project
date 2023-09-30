@@ -22,6 +22,9 @@ import { SupermarketPageComponent } from './supermarket-page/supermarket-page.co
 import { MobilesDetailsComponent } from './mobiles-details/mobiles-details.component';
 import { MobilesComponent } from './mobiles/mobiles.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductsDetailsComponent } from './products-details/products-details.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { SignupComponent } from './signup/signup.component';
     SupermarketPageComponent,
     SignupComponent,
     MobilesComponent,
-    MobilesDetailsComponent
+    MobilesDetailsComponent,
+    ProductsComponent,
+    ProductsDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
