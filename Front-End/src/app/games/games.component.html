@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row w-75 mx-auto mt-5">
+    <input type="text" class="form-control" [(ngModel)]="searchValue" />
+  </div>
+  <div class="container my-5">
+    <mat-paginator
+      [length]="totalProducts"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[10]"
+      aria-label="Select page"
+      (page)="changePage($event)"
+    >
+    </mat-paginator>
+  </div>
+  <section id="team" class="pb-5">
+    <div class="container">
+      <h5 class="section-title h1">MOVIES</h5>
+      <div class="row">
+        <!-- Team member -->
+        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let tv of allMovies">
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div class="mainflip">
+              <div class="frontside">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <p>
+                      <img
+                        class="img-fluid"
+                        [src]="imagePath + tv.poster_path"
+                        alt="card image"
+                      />
+                    </p>
+                    <div class="text-title">
+                      <h4 class="card-title">{{ tv.title }}</h4>
+                    </div>
+                    <p class="card-text">
+                      This is basic card with image on top, title, description
+                      and button.
+                    </p>
+                    <h5 class="text-info">Rate : {{ tv.vote_average / 2 }}</h5>
+
+                    <div class="d-flex justify-content-center" style>
+                      <div class="black" style="width: 75px">
+                        <div style="position: relative">
+                          <div
+                            style="
+                              overflow: hidden;
+                              position: absolute;
+                              left: 0px;
+                              top: 0px;
+                              z-index: 1;
+                            "
+                            [style.width.px]="((tv.vote_average / 2) * 75) / 5"
+                            class=""
+                          >
+                            <div style="width: 75px">
+                              <i class="fa fa-star text-warning"></i>
+                              <i class="fa fa-star text-warning"></i>
+                              <i class="fa fa-star text-warning"></i>
+                              <i class="fa fa-star text-warning"></i>
+                              <i class="fa fa-star text-warning"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <i class="fa fa-star text-muted"></i>
+                        <i class="fa fa-star text-muted"></i>
+                        <i class="fa fa-star text-muted"></i>
+                        <i class="fa fa-star text-muted"></i>
+                        <i class="fa fa-star text-muted"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="backside">
+                <div class="card">
+                  <div class="card-body text-center mt-4 mb-2">
+                    <h3 class="card-title mt-1">Movie</h3>
+                    <div class="text-des">
+                      <p class="card-text">
+                        {{ tv.overview }}
+                      </p>
+                    </div>
+                    <button class="btn btn-primary btn-md mt-3 me-3">
+                      add to cart
+                    </button>
+                    <a [routerLink]="['/games', tv.id]">
+                      <button class="btn btn-danger btn-md mt-3">
+                        details
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./Team member -->
+      </div>
+    </div>
+  </section>
+

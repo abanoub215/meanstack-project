@@ -4,7 +4,6 @@ import { dbConnection } from "./database/dbConnection.js";
 import { productModel } from "./database/models/product.model.js";
 import { cartModel } from "./database/models/cart.model.js";
 import { gameModel } from "./database/models/games.js";
-import { gameModel } from "./database/models/games.js";
 const app = express();
 const port = 3000;
 app.use(cors());
