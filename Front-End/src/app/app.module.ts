@@ -18,6 +18,7 @@ import { GamesComponent } from './games/games.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { GamesDetailsComponent } from './games-details/games-details.component';
+import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { GamesDetailsComponent } from './games-details/games-details.component';
     ShoppingCartComponent,
     GamesComponent,
     GamesDetailsComponent,
+    SupermarketPageComponent,
   ],
   imports: [
     BrowserModule,
