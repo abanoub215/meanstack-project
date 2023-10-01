@@ -25,6 +25,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { LoginComponent } from './login/login.component';
+import { SportPageComponent } from './sport-page/sport-page.component';
+import { SportProductsDetailsComponent } from './sport-products-details/sport-products-details.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { LoginComponent } from './login/login.component';
     MobilesDetailsComponent,
     ProductsComponent,
     ProductsDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    SportPageComponent,
+    SportProductsDetailsComponent,
   ],
   imports: [
     BrowserModule,

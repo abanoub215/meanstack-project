@@ -1,3 +1,4 @@
+// import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { SportPageService } from '../sport-page.service';
 
@@ -33,8 +34,8 @@ export class SportPageComponent implements OnInit{
   search(productName: string) {
     this.sportProductServ.searchAllSportProducts(productName).subscribe({
       next: (data) => {
-        
-        this.allSportProducts = data.product;        
+
+        this.allSportProducts = data.product;
         console.log(data.product);
       },
     });

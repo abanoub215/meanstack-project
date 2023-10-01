@@ -15,6 +15,8 @@ import { MobilesDetailsComponent } from './mobiles-details/mobiles-details.compo
 import { ProductsComponent } from './products/products.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { LoginComponent } from './login/login.component';
+import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
+import { SportPageComponent } from './sport-page/sport-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,7 +35,9 @@ const routes: Routes = [
   { path: 'mobilesDetails/:id', component: MobilesDetailsComponent },
   { path: 'electronicsProducts', component: ProductsComponent },
   { path: 'electronicsProductsDetails/:id', component:ProductsDetailsComponent },
-  { path: 'login', component:LoginComponent }
+  { path: 'login', component:LoginComponent },
+  { path: 'supermarket', component:SupermarketPageComponent },
+  { path: 'sport', component:SportPageComponent }
 
 
 ];
